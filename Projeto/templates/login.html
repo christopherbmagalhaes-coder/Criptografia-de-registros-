@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - APS Segurança</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 350px;
+            margin: 80px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+        }
+        h2 {
+            text-align: center;
+            color: #1f3c88;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #1f3c88;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #162d66;
+        }
+        .erro {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .teste {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Login do Sistema</h2>
+
+        <form method="POST">
+            <input name="username" placeholder="Usuário" required>
+            <input name="password" type="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+
+        {% if erro %}
+            <p class="erro">{{ erro }}</p>
+        {% endif %}
+
+        <div class="teste">
+            <p><strong>Usuários para teste:</strong></p>
+            <p>Admin → usuário: admin | senha: 123</p>
+            <p>User → usuário: user | senha: 123</p>
+        </div>
+    </div>
+</body>
+</html>

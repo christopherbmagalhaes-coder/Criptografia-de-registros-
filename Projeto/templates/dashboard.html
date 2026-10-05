@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            padding: 30px;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 700px;
+            margin: auto;
+            box-shadow: 0 0 12px rgba(0,0,0,0.12);
+        }
+        h2 {
+            color: #1f3c88;
+        }
+        a {
+            display: inline-block;
+            margin-right: 15px;
+            margin-top: 15px;
+            text-decoration: none;
+            color: white;
+            background: #1f3c88;
+            padding: 10px 15px;
+            border-radius: 6px;
+        }
+        a:hover {
+            background: #162d66;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Bem-vindo, {{ user }}</h2>
+        <p><strong>Tipo de usuário:</strong> {{ role }}</p>
+        <p>Você está autenticado no sistema de segurança da APS.</p>
+
+        <a href="/registros">Registros Emergéticos</a>
+
+{% if role == "admin" %}
+    <a href="/admin">Área Admin</a>
+{% endif %}
+
+<a href="/logout">Sair</a>
+    </div>
+</body>
+</html>

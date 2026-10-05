@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Área Administrativa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.12);
+        }
+        h2, h3 {
+            color: #1f3c88;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+            background: #1f3c88;
+            padding: 10px 15px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h2>Área Administrativa</h2>
+            <p>Somente administradores podem acessar esta área.</p>
+            <a href="/dashboard">Voltar ao Dashboard</a>
+        </div>
+
+        <div class="box">
+            <h3>Usuários do Sistema</h3>
+            <table>
+                <tr>
+                    <th>Usuário</th>
+                    <th>Perfil</th>
+                </tr>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.role }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="box">
+            <h3>Últimos Logs</h3>
+            <table>
+                <tr>
+                    <th>Usuário</th>
+                    <th>Ação</th>
+                    <th>Detalhes</th>
+                    <th>Data/Hora</th>
+                </tr>
+                {% for log in logs %}
+                <tr>
+                    <td>{{ log.username }}</td>
+                    <td>{{ log.action }}</td>
+                    <td>{{ log.details }}</td>
+                    <td>{{ log.created_at }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>
